@@ -22,6 +22,11 @@ export default function UpdateMovie({setMovieList, movieList}) {
     const { name, value } = e.target;
     setMovie({...movie, [name]: value});
   }
+  const updateStars = (e) => {
+    let { value } = e.target;
+    value = value.split('\n');
+    setMovie({...movie, stars: value});
+  }
 
   const submit = (e) => {
     e.preventDefault();
@@ -74,12 +79,20 @@ export default function UpdateMovie({setMovieList, movieList}) {
           <div className="movie-metascore">
             <label>Metascore:&nbsp;
               <input
-                  type="number"
-                  name="metascore"
-                  value={movie.metascore}
-                  onChange={e => updateMovie(e)}
+                type="number"
+                name="metascore"
+                value={movie.metascore}
+                onChange={e => updateMovie(e)}
               />
             </label>
+          </div>
+          <div className='text-area'>
+            <label for='stars' >Starring:&nbsp;</label>
+              <textarea
+                name='stars'
+                value={movie.stars.join('\n')}
+                onChange={e => updateStars(e)}
+              />
           </div>
           <button>Submit</button>
         </form>

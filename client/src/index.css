@@ -85,3 +85,15 @@ body {
   color: red;
   text-align: center;
 }
+textarea {
+  margin: 1em 2em;
+  min-width: 20em;
+  min-height: 6em;
+  top: 4em;
+}
+.text-area {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
